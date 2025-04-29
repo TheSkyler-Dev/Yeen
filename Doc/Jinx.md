@@ -3,10 +3,13 @@ Jinx is a modern, strictly interpreted Scripting language with the performance o
 
 ## The `Jinx` Philosophy
 Jinx aims to provide...
-- a pythonic, concise, but easy  to understand syntax
+- a pythonic, concise, but easy to understand syntax
 - better memory safety
 - strong performance
 - Synchronous execution unless specified otherwise
+
+## How `Jinx` runs
+`Jinx` runs by being compiled just in time, making it portable without sacrificing performance! It's that simple!
 
 ## `Jinx` Style Conventions
 Jinx follows the universally recognized style guidelines provided by [Google](https://tinyurl.com/42h9tfy8). I.e. Four spaces instead of `tab`. Furthermore, it is considered good practice to separate variables, expressions, mathematical and logical operators with spaces for better readability. While it's acceptable to follow the C++ standard practice of ending every statement with a semicolon (`;`) or wrap code blocks within classes, functions or loops in curly braces (`{}`), it is generally recommended and better practice to omit those and use blank lines as separators above and below classes, functions and loops instead. While not strictly required, it's good practice to explicitly declare variable types to avoid ambiguous type errors.
@@ -16,9 +19,9 @@ Jinx follows the universally recognized style guidelines provided by [Google](ht
 Libraries are "included" (actually imported) with the `!import` keyword and allows for direct access to components from a library. Here's how to use it:
 
 ```Jinx
-!import-> "calc"
+!import-> "calc" #imports the entire library or external class
 or
-!import-> "pi" from "calc"
+!import-> "pi" from "calc" #imports a specific module of a library
 ```
 
 ## Variables
@@ -64,7 +67,7 @@ Example:
 ```Jinx
 const pi->dub = 3.14
 
-pi = 3.1415 #only throws an error during interpretation
+pi = 3.1415 #only throws an error on runtime
 3.1415 = pi #throws an error in the IDE
 ```
 ## Basic Arithmetic
@@ -131,6 +134,9 @@ dec name->str = "Jane Doe"
 dec example->str = '$name says that $x + $y equals ${x + y}.'
 tell(example)
 ```
+
+⚠️**Importand to Note:
+Jinx supports UTF-8 encoding my default!
 
 ## Comments
 - `#` Normal comment
@@ -285,16 +291,17 @@ External classes are called by the main source file through the `!import->` flag
 `Jinx` runs synchronously by default. However, you can declare asynchronous code blocks when needed, using the `desync`, `resync` and `expect` keywords. Here's an example:
 
 ```Jinx
-desync fun myAsyncFunc():
-    #some code
-    dec dynamicData->dub = dynData
-    ack dynamicData
+desync:
+    fun myAsyncFunc():
+        #some code
+        dec dynamicData->dub = dynData
+        ack dynamicData
+    endfun
 resync
-dec data->dub = 0.0
-expect data = myAsyncfunc()
+dec data->dub? = expect myAsyncfunc()
 ```
 
-Note that the block has to start with `desync` and ends with `resync`. Additionally, the `resync` keyword takes precedence over the `endfun` keyword and therefore doesn't appear in async blocks.
+Note that the block has to start with `desync` and ends with `resync`.
 
 ## Error handling
 
