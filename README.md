@@ -6,10 +6,10 @@
 ---
 
 ## What is `Jinx`?
-Jinx is a modern, strictly interpreted Scripting language with the performance of C++ and Reference counting memory management, meant for command line automation, game scripting and more.
+`Jinx` is a modern, strictly interpreted Scripting language with the performance of C++ and Reference counting memory management, meant for command line automation, game scripting and more.
 
 ## The `Jinx` Philosophy
-Jinx aims to provide...
+`Jinx` aims to provide...
 - a pythonic, concise, but easy  to understand syntax
 - better memory safety
 - strong performance
