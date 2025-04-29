@@ -1,3 +1,26 @@
+## Table of Contents
+1. [What is `Jinx`?](#what-is-jinx)
+2. [The `Jinx` Philosophy](#the-jinx-philosophy)
+3. [Style Conventions](#jinx-style-conventions)
+4. [Syntax at a Glance](#jinx-syntax-at-a-glance)
+    - [Library Inclusions](#library-inclusions)
+    - [Variables](#variables)
+    - [Basic Arithmetic](#basic-arithmetic)
+    - [Data Structures](#data-structures)
+    - [Basic I/O](#basic-io)
+    - [Template Literals](#template-literals)
+    - [Comments](#comments)
+5. [Loops](#loops)
+6. [Control Flow](#control-flow)
+7. [Conditionals](#conditionals)
+8. [Functions and Classes](#functions-and-classes)
+9. [Asynchronous Code](#asynchronous-code-in-jinx)
+10. [Error Handling](#error-handling)
+11. [Syntax Highlighting](#syntax-highlighting)
+12. [Alternative Syntax Highlighting Schemes](#alternative-syntax-highlighting-schemes)
+
+---
+
 ## What is `Jinx`?
 Jinx is a modern, strictly interpreted Scripting language with the performance of C++ and Reference counting memory management, meant for command line automation, game scripting and more.
 
