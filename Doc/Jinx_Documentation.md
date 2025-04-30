@@ -89,7 +89,7 @@ Example:
 ```Jinx
 const pi->dub = 3.14
 
-pi = 3.1415 #only throws an error during interpretation
+pi = 3.1415 #only throws an error on runtime
 3.1415 = pi #throws an error in the IDE
 ```
 ## Basic Arithmetic
@@ -329,7 +329,7 @@ Note that the block has to start with `desync` and ends with `resync`. Additiona
 try:
     #some code here
 catch:
-    throw(err(ecode(), "Error message"))
+    throw(err(ecode(), "An error occured"))
 ```
 
 Here, the standard function `err()` (`err(prefix, error message)`) lets you build a custom error message, while the `ecode()` function generates an error code. Here, the resulting error message would have whatever error code `ecode()`returns, set as the prefix. For handling variables with the values `nil` or `NaN`, the checking methods `isNaN()` and `isNil()` are used. These methods can also be used within `if-else` statements. Alternatively, `isEmpty()` can be used:
