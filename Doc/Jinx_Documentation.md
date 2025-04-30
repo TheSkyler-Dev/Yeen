@@ -132,7 +132,7 @@ people->col = {
 ```
 
 ## Basic I/O
-`Jinx` handles input and output similarly to other languages, but with its own syntax. It uses `tell` for output and `readln` for input, which supports input prompts enclosed in double or single quotes.
+`Jinx` handles input and output similarly to other languages, but with its own syntax. It uses the standard `tell()` function for output and `readln()` function for input, which supports input prompts enclosed in double or single quotes within the parentheses.
 
 ```Jinx
 dec myVar->str = "default"
@@ -162,7 +162,7 @@ tell(example)
 - `#!` Multi-line comment
 
 ## Loops
-`Jinx` supports your usual types of loops: `while`-loops, `do...while` loops and `for` loops. These essentially work the same as in other programming languages, but with some differences in syntax. Numeric variables in `Jinx` support incrementing values (`++`) and decrementing values (`--`). The step for increment/decrement is 1 by default, but can be adjusted as needed with the `.step()` modifier. `for` loops also support ranges.
+`Jinx` supports your usual types of loops: `while`-loops, `do...while` loops and `for` loops. These essentially work the same as in other programming languages, but with some differences in syntax. Numeric variables in `Jinx` support incrementing values (`++`) and decrementing values (`--`). The step for increment/decrement is 1. `for` loops also support ranges.
 
 `while` loop:
 ```Jinx
@@ -180,7 +180,7 @@ while(<condition>)
 
 `for` loop:
 ```Jinx
-for(dec i->int = 0; i < 10>; i++.step(1)):
+for(dec i->int = 0; i < 10>; i++):
     #some code (e.g. a list iterator)
 endfor
 
