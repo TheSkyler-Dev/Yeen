@@ -52,7 +52,7 @@ Variables in Jinx can have the following data types by default:
 - `int` 64-bit Integer
 	- `int32` 32-bit Integer
 - `dub` 64-bit Double precision floating point with up to 16 decimal points
-	- `dub32` 32-bit Double precision floating point (up to 8 decimal points)
+	- `dub32` 32-bit Double precision floating point (up to 7 decimal points)
 - `bool` Boolean, can be represented by `1` and `0`, or `true` or `false`. Type must be explicitly declared to use `1` or `0` as boolean values.
 
 Variables are always declared with the `dec` keyword for non-constant variables, and `const` for constant variables. To declare a variable with an explicit data type, the variable name must be followed with `-><datatype>` without spaces. Otherwise, the type will be inferred. You can also declare multiple variables with the same type in a single line
@@ -64,7 +64,7 @@ dec myVar = 0 #type inferred as int
 dec myBool->bool = 1 #boolean with value 'true'
 dec int->x = 9; y = 10
 const pi = 3.14159 #inferred as 'dub'
-const pi32->dub32 = 3.14159265 #declared as a 32-bit double
+const pi32->dub32 = 3.1415927 #declared as a 32-bit float
 ```
 
 In `Jinx`, variables of numeric and alphanumeric types (`int`, `int32`, `dub`, `dub32` and `str`) are nullable,  and must be declared as such by type. It's important to note, that `Jinx` won't let you leave variable uninitialized, so you still have to initialize variables, even if they're nullable.
