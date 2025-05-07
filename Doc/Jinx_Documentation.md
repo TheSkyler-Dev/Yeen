@@ -52,7 +52,7 @@ Variables in Jinx can have the following data types by default:
 - `int` 64-bit Integer
 	- `int32` 32-bit Integer
 - `dub` 64-bit Double precision floating point with up to 16 decimal points
-	- `dub32` 32-bit Double precision floating point (up to 7 decimal points)
+	- `dub32` 32-bit floating point (up to 7 decimal points)
 - `bool` Boolean, can be represented by `1` and `0`, or `true` or `false`. Type must be explicitly declared to use `1` or `0` as boolean values.
 
 Variables are always declared with the `dec` keyword for non-constant variables, and `const` for constant variables. To declare a variable with an explicit data type, the variable name must be followed with `-><datatype>` without spaces. Otherwise, the type will be inferred. You can also declare multiple variables with the same type in a single line
