@@ -1,10 +1,10 @@
-# Jinx
+# Yeen
 
 ## Table of Contents
-1. [What is `Jinx`?](#what-is-jinx)
-2. [The `Jinx` Philosophy](#the-jinx-philosophy)
-3. [Style Conventions](#jinx-style-conventions)
-4. [Syntax at a Glance](#jinx-syntax-at-a-glance)
+1. [What is `Yeen`?](#what-is-yeen)
+2. [The `Yeen` Philosophy](#the-yeen-philosophy)
+3. [Style Conventions](#Yeen-style-conventions)
+4. [Syntax at a Glance](#Yeen-syntax-at-a-glance)
     - [Library Inclusions](#library-inclusions)
     - [Variables](#variables)
     - [Basic Arithmetic](#basic-arithmetic)
@@ -16,38 +16,36 @@
 6. [Control Flow](#control-flow)
 7. [Conditionals](#conditionals)
 8. [Functions and Classes](#functions-and-classes)
-9. [Asynchronous Code](#asynchronous-code-in-jinx)
+9. [Asynchronous Code](#asynchronous-code-in-Yeen)
 10. [Error Handling](#error-handling)
 11. [Syntax Highlighting](#syntax-highlighting)
 12. [Alternative Syntax Highlighting Schemes](#alternative-syntax-highlighting-schemes)
 
 --- 
 
-## What is `Jinx`?
-`Jinx` is a modern, strictly interpreted Scripting language with the performance of C++ and Reference counting memory management, meant for command line automation, game scripting and more.
+## What is `Yeen`?
+`Yeen` is a modern, memory safe and pythonic superset of Java aimed on making the development of JVM applications simpler and less verbose.
 
-## The `Jinx` Philosophy
-`Jinx` aims to provide...
+## The `Yeen` Philosophy
+`Yeen` aims to provide...
 - a pythonic, concise, but easy  to understand syntax
 - better memory safety
-- strong performance
-- Synchronous execution unless specified otherwise
 
-## `Jinx` Style Conventions
-Jinx follows the universally recognized style guidelines provided by [Google](https://tinyurl.com/42h9tfy8). I.e. Four spaces instead of `tab`. Furthermore, it is considered good practice to separate variables, expressions, mathematical and logical operators with spaces for better readability. While it's acceptable to follow the C++ standard practice of ending every statement with a semicolon (`;`) or wrap code blocks within classes, functions or loops in curly braces (`{}`), it is generally recommended and better practice to omit those and use blank lines as separators above and below classes, functions and loops instead. While not strictly required, it's good practice to explicitly declare variable types to avoid ambiguous type errors.
+## `Yeen` Style Conventions
+Yeen follows the universally recognized style guidelines provided by [Google](https://tinyurl.com/42h9tfy8). I.e. Four spaces instead of `tab`. Furthermore, it is considered good practice to separate variables, expressions, mathematical and logical operators with spaces for better readability. While it's acceptable to follow the C++ standard practice of ending every statement with a semicolon (`;`) or wrap code blocks within classes, functions or loops in curly braces (`{}`), it is generally recommended and better practice to omit those and use blank lines as separators above and below classes, functions and loops instead. While not strictly required, it's good practice to explicitly declare variable types to avoid ambiguous type errors.
 
-## `Jinx` Syntax at a Glance
+## `Yeen` Syntax at a Glance
 ### Library Inclusions
 Libraries are "included" (actually imported) with the `!import` keyword and allows for direct access to components from a library. Here's how to use it:
 
-```Jinx
+```Yeen
 !import-> "calc"
 or
 !import-> "pi" from "calc"
 ```
 
 ## Variables
-Variables in Jinx can have the following data types by default:
+Variables in `Yeen` can have the following data types by default:
 - `str` String
 - `int` 64-bit Integer
 	- `int32` 32-bit Integer
@@ -59,7 +57,7 @@ Variables are always declared with the `dec` keyword for non-constant variables,
 
 Example usage:
 
-```Jinx
+```Yeen
 dec myVar = 0 #type inferred as int
 dec myBool->bool = 1 #boolean with value 'true'
 dec int->x = 9; y = 10
@@ -67,9 +65,9 @@ const pi = 3.14159 #inferred as 'dub'
 const pi32->dub32 = 3.1415927 #declared as a 32-bit float
 ```
 
-In `Jinx`, variables of numeric and alphanumeric types (`int`, `int32`, `dub`, `dub32` and `str`) are nullable,  and must be declared as such by type. It's important to note, that `Jinx` won't let you leave variable uninitialized, so you still have to initialize variables, even if they're nullable.
+In `Yeen`, variables of numeric and alphanumeric types (`int`, `int32`, `dub`, `dub32` and `str`) are nullable,  and must be declared as such by type. It's important to note, that `Yeen` won't let you leave variable uninitialized, so you still have to initialize variables, even if they're nullable.
 
-```Jinx
+```Yeen
 dec myNum->int? = NaN
 dec myStr->str? = nil
 ```
@@ -81,19 +79,19 @@ if a variable isn't nullable, default values should be used, such as:
 - `"def"` or `"default"` for `string`
 - `0` or `false` for `bool`
 
-#### Interesting Fact about Variables in `Jinx`
+#### Interesting Fact about Variables in `Yeen`
 While it's not explicitly enforced, it is good practice to use Yoda notation when working with previously declared variables, as that helps in catching assignment errors on variables.
 
 Example:
 
-```Jinx
+```Yeen
 const pi->dub = 3.14
 
 pi = 3.1415 #only throws an error on runtime
 3.1415 = pi #throws an error in the IDE
 ```
 ## Basic Arithmetic
-`Jinx` uses the standard, widely recognized mathematical operators:
+`Yeen` uses the standard, widely recognized mathematical operators:
 - `+`: Addition
 - `-`: Subtraction
 - `/`: Division
@@ -102,9 +100,9 @@ pi = 3.1415 #only throws an error on runtime
 - `!`: Factorial
 - `**` : Exponentiation
 
-Example usage of mathematical operators in `Jinx`:
+Example usage of mathematical operators in `Yeen`:
 
-```Jinx
+```Yeen
 tell(16 + 16)
 tell(16 - 8)
 tell(32 / 2)
@@ -115,9 +113,9 @@ tell(2 ** 7)
 ```
 
 ## Data Structures
-`Jinx` supports various data structures, such as Arrays `arr`, Dictionaries `dict` and object collections `col`. Object collections store parameterized objects similar to a JSON file:
+`Yeen` supports various data structures, such as Arrays `arr`, Dictionaries `dict` and object collections `col`. Object collections store parameterized objects similar to a JSON file:
 
-```Jinx
+```Yeen
 people->col = {
     person1:
         "Name": "Jane Doe",
@@ -132,9 +130,9 @@ people->col = {
 ```
 
 ## Basic I/O
-`Jinx` handles input and output similarly to other languages, but with its own syntax. It uses the standard `tell()` function for output and `readln()` function for input, which supports input prompts enclosed in double or single quotes within the parentheses.
+`Yeen` handles input and output similarly to other languages, but with its own syntax. It uses the standard `tell()` function for output and `readln()` function for input, which supports input prompts enclosed in double or single quotes within the parentheses.
 
-```Jinx
+```Yeen
 dec myVar->str = "default"
 myVar = readln("Enter your Name: ")
 tell(myVar)
@@ -142,15 +140,15 @@ tell(myVar)
 
 For required input, the `.require` marker can be used.
 
-```Jinx
+```Yeen
 dec name->str = "default"
 name = readln("Please enter your name: ").require
 ```
 
 ## Template Literals
-`Jinx` supports template literals. To use them, the string must be enclosed in single quotes. You can use template literals to insert variables and expressions directly into a string. Expression must be enclosed in curly braces.
+`Yeen` supports template literals. To use them, the string must be enclosed in single quotes. You can use template literals to insert variables and expressions directly into a string. Expression must be enclosed in curly braces.
 
-```Jinx
+```Yeen
 dec int->x = 9; y = 10
 dec name->str = "Jane Doe"
 dec example->str = '$name says that $x + $y equals ${x + y}.'
@@ -162,25 +160,25 @@ tell(example)
 - `#!` Multi-line comment
 
 ## Loops
-`Jinx` supports your usual types of loops: `while`-loops, `do...while` loops and `for` loops. These essentially work the same as in other programming languages, but with some differences in syntax. Numeric variables in `Jinx` support incrementing values (`++`) and decrementing values (`--`). The step for increment/decrement is 1. `for` loops also support ranges.
+`Yeen` supports your usual types of loops: `while`-loops, `do...while` loops and `for` loops. These essentially work the same as in other programming languages, but with some differences in syntax. Numeric variables in `Yeen` support incrementing values (`++`) and decrementing values (`--`). The step for increment/decrement is 1. `for` loops also support ranges.
 
 `while` loop:
-```Jinx
+```Yeen
 while(true):
     #some code
 endwhile
 ```
 
 `do-while` loop:
-```Jinx
+```Yeen
 do:
     #some code
 while(<condition>)
 ```
 
 `for` loop:
-```Jinx
-for(dec i->int = 0; i < 10>; i++):
+```Yeen
+for(dec i->int = 0; i < 10; i++):
     #some code (e.g. a list iterator)
 endfor
 
@@ -192,11 +190,11 @@ endfor
 ```
 
 ## Control Flow
-`Jinx` supports the usual control flow structures like `if`/`elif`/`else` and switch statements (`sw`). `if/else` statements must end with the `endif` keyword and switch statements have to end with the `endsw`keyword. For single-line `if` statements, the `endif` keyword can be omitted.
+`Yeen` supports the usual control flow structures like `if`/`elif`/`else` and switch statements (`sw`). `if/else` statements must end with the `endif` keyword and switch statements have to end with the `endsw`keyword. For single-line `if` statements, the `endif` keyword can be omitted.
 
 `if/else` statement:
 
-```Jinx
+```Yeen
 if (<condition>):
     #some code
 else:
@@ -205,7 +203,7 @@ endif
 ```
 
 Example usage:
-```Jinx
+```Yeen
 dec age->int = readln("Enter your age: ").require
 if (age < 18):
     tell("You are a minor.")
@@ -218,7 +216,7 @@ endif
 
 switch statement:
 
-```Jinx
+```Yeen
 sw (<condition>):
     case 1:
         #case 1 code
@@ -231,11 +229,11 @@ endsw
 ```
 
 ## Conditionals
-`Jinx` generally supports all logic operators like AND (`&&`), OR (`||`) etc. and use the generally recognized symbols for doing so. These can also be used in bitwise operations. Additionally, Elvis operators (`:?`) are also supported by `Jinx`. Operators like `&&` and `||` can also be used in control flow when you need to cover a condition with a single code block or need two conditions to be true for a certain block of code to execute.
+`Yeen` generally supports all logic operators like AND (`&&`), OR (`||`) etc. and use the generally recognized symbols for doing so. These can also be used in bitwise operations. Additionally, Elvis operators (`:?`) are also supported by `Yeen`. Operators like `&&` and `||` can also be used in control flow when you need to cover a condition with a single code block or need two conditions to be true for a certain block of code to execute.
 
 Logical operators in control flow:
 
-```Jinx
+```Yeen
 dec num1->int = 0
 dec num2->int = 0
 num1 = readln("Enter num 1: ")
@@ -247,7 +245,7 @@ endif
 
 Elvis operator example:
 
-```Jinx
+```Yeen
 dec username->str? = nil
 dec displayName->str? = !username.empty() ? username : "Guest"
 ```
@@ -255,18 +253,18 @@ dec displayName->str? = !username.empty() ? username : "Guest"
 ## Functions and Classes
 - Functions are declared with the `fun` keyword and must end with the `endfun` keyword. Data is returned with the `ack` keyword, which "acknowledges" and returns a value.
 - Classes are declared with the `class` keyword and must end with the `endclass` keyword.
-#### `Jinx` function example
+#### `Yeen` function example
 
-```Jinx
+```Yeen
 fun myFunc():
 	#function contents
 	ack none
 endfun
 ```
 
-#### `Jinx` class example
+#### `Yeen` class example
 
-```Jinx
+```Yeen
 class myClass():
 	constr:{
 		#constructor
@@ -288,7 +286,7 @@ endclass
 
 Example usage:
 
-```Jinx
+```Yeen
 class Person():
     constr(name->str, age->int):
         self.name = name
@@ -306,10 +304,10 @@ john.greet()
 
 External classes are called by the main source file through the `!import->` flag. Once included, you can call the public functions of the class.
 
-## Asynchronous Code in `Jinx`
-`Jinx` runs synchronously by default. However, you can declare asynchronous code blocks when needed, using the `desync`, `resync` and `expect` keywords. Here's an example:
+## Asynchronous Code in `Yeen`
+`Yeen` runs synchronously by default. However, you can declare asynchronous code blocks when needed, using the `desync`, `resync` and `expect` keywords. Here's an example:
 
-```Jinx
+```Yeen
 desync fun myAsyncFunc():
     #some code
     dec dynamicData->dub = dynData
@@ -319,13 +317,13 @@ dec data->dub = 0.0
 expect data = myAsyncfunc()
 ```
 
-Note that the block has to start with `desync` and ends with `resync`. Additionally, the `resync` keyword takes precedence over the `endfun` keyword and therefore doesn't appear in async blocks.
+Note that the block has to start with `desync` and ends with `resync`. Alternatively, the `resync-fun` keyword can be used to end a desync function.
 
 ## Error handling
 
-`Jinx`, by default, already handles errors fairly well with concise error messages, however, you may want to handle possible errors in your programs more gracefully. That's where the `try` `catch` statement comes in. it works no different than in other programming languages, however providing an error code and error message works slightly differently:
+`Yeen`, by default, already handles errors fairly well with concise error messages, however, you may want to handle possible errors in your programs more gracefully. That's where the `try` `catch` statement comes in. it works no different than in other programming languages, however providing an error code and error message works slightly differently:
 
-```Jinx
+```Yeen
 try:
     #some code here
 catch:
@@ -334,7 +332,7 @@ catch:
 
 Here, the standard function `err()` (`err(prefix, error message)`) lets you build a custom error message, while the `ecode()` function generates an error code. Here, the resulting error message would have whatever error code `ecode()`returns, set as the prefix. For handling variables with the values `nil` or `NaN`, the checking methods `isNaN()` and `isNil()` are used. These methods can also be used within `if-else` statements. Alternatively, `isEmpty()` can be used:
 
-```Jinx
+```Yeen
 dec myStr->str = nil
 if(myStr.isNil()):
     throw(err(ecode(), "Error message"))
@@ -348,7 +346,7 @@ endif
 ```
 ## Syntax highlighting
 
-`Jinx` can use any widely known syntax highlighting scheme, but the standard syntax highlighting for `Jinx` takes inspiration from the syntax highlighting used for Swift in the XCode modern Dark theme for VSCode:
+`Yeen` can use any widely known syntax highlighting scheme, but the standard syntax highlighting for `Yeen` takes inspiration from the syntax highlighting used for Swift in the XCode modern Dark theme for VSCode:
 
 - Keywords (`fun`, `class`, etc.): Persian Pink (#F77FBE)
 - Variables and constants : White #FFFFFF(dark mode), Black #000000 (light mode)
@@ -359,13 +357,13 @@ endif
 - Data types: Lavender (#E6E6FA)
 - Unused variables and functions: Navy Gray (#656B83)
 
-**`Jinx` also resolves invisible characters:**
+**`Yeen` also resolves invisible characters:**
 - Zero-Width Space: Resolved to`<ZWSP>` (Red (#FF0000) translucent background and underline)
 - Whitespace: Resolved to `<WSPACE>` (Orange (#FFA500) translucent background and underline)
 - EM Space: Resolved to `<EM>` (Fluorescent Yellow (#CCFF00) translucent background and underline)
 
 ## Alternative Syntax Highlighting Schemes
-`Jinx` offers alternative syntax highlighting color schemes that are color corrected for colorblindness (primarily protanopia, deuteranopia and tritanopia). These can be set and adjusted as needed in the settings of the official `Fern` plugin in your IDE. Here are those themes:
+`Yeen` offers alternative syntax highlighting color schemes that are color corrected for colorblindness (primarily protanopia, deuteranopia and tritanopia). These can be set and adjusted as needed in the settings of the official `Fern` plugin in your IDE. Here are those themes:
 
 ### Protanopia
 
