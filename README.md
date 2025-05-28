@@ -12,5 +12,3 @@
 `Yeen` aims to provide...
 - a pythonic, concise, but easy  to understand syntax
 - better memory safety
-- strong performance
-- Synchronous execution unless specified otherwise
